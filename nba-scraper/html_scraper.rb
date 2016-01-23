@@ -3,7 +3,7 @@ require 'pry'
 require 'csv'
 
 def create_stats_hash
-  html = File.read('fixtures/stats.html')
+  html = File.read('fixtures/nba_stats.html')
   stats_html = Nokogiri::HTML(html)
 
   stats_extract = {}
@@ -29,12 +29,16 @@ def create_stats_hash
       # The points scored by a player or team per touch
       :points_per_touch => player.css(".ng-binding")[12].text.to_f
     }
-
-    binding.pry
-
     counter += 1
   end
+
+  # To Write Contents to a csv file
+  # # CSV.open("stats.csv", "a") do |csv|
+  # #   csv << stats_extract.values
+  # # end
+
   stats_extract
+
 end
 
 create_stats_hash
