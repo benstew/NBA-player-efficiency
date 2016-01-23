@@ -1,13 +1,6 @@
-# require libraries/modules here
-require 'HTTParty'
 require 'nokogiri'
-require 'JSON'
 require 'pry'
 require 'csv'
-
-# page = HTTParty.get('http://stats.nba.com/tracking/#!/player/possessions/?sort=TOUCHES&dir=1')
-# parse_page = Nokogiri::HTML(page)
-
 
 def create_stats_hash
   html = File.read('fixtures/stats.html')
@@ -16,7 +9,6 @@ def create_stats_hash
   stats_extract = {}
   counter = 1
 
-  # stats_html.css(".table tbody .ng-scope").each do |player|
   stats_html.css(".table tbody .each-player").each do |player|
 
     stats_extract[counter] = {
@@ -40,21 +32,9 @@ def create_stats_hash
 
     binding.pry
 
-
-
-
-    # Data returned from the scraper has extra white spaces
-    # unformatted_question = project.css("div.question-segment").text
-    # unformatted_answer = project.css("div.faq-answer-container").text
-
-    # projects[counter] = {
-    #   # Formatting the text before pushing into our projects hash
-    #   # :question => unformatted_question.strip,
-    #   # :answer => unformatted_answer.strip
-    # }
     counter += 1
   end
-  projects
+  stats_extract
 end
 
 create_stats_hash
