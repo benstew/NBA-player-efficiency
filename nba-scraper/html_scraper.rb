@@ -26,6 +26,12 @@ def create_stats_hash
       # The number of minutes that a player possess the ball
       :time_of_possession => player.css(".ng-binding")[9].text.to_f,
 
+      #The average seconds per touch
+      :seconds_per_touch => player.css(".ng-binding")[10].text.to_f,
+
+      #The average dribbles per touch
+      :dribbles_per_touch => player.css(".ng-binding")[11].text.to_f,
+
       # The points scored by a player or team per touch
       :points_per_touch => player.css(".ng-binding")[12].text.to_f
     }
