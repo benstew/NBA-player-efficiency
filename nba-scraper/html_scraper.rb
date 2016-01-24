@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'pry'
 require 'csv'
+require 'json'
 
 def create_stats_hash
   html = File.read('fixtures/nba_stats.html')
@@ -38,10 +39,15 @@ def create_stats_hash
     counter += 1
   end
 
-  # To Write Contents to a csv file
+  # To write data to a csv file
   # # CSV.open("stats.csv", "a") do |csv|
   # #   csv << stats_extract.values
   # # end
+
+  # To write data to JSON file
+  File.open("stats.json","w") do |f|
+    f.write(stats_extract.to_json)
+  end
 
   stats_extract
 
