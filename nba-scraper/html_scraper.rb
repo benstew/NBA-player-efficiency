@@ -43,10 +43,6 @@ def create_stats_hash
     f.write(stats_extract.to_json)
   end
 
-  File.open("stats.rb","w") do |f|
-    f.write(stats_extract)
-  end
-
   stats_extract
 
 end
