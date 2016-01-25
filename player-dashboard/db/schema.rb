@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124235254) do
+ActiveRecord::Schema.define(version: 20160125015326) do
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20160124235254) do
     t.integer  "games_played"
     t.integer  "wins"
     t.integer  "losses"
-    t.integer  "minutes"
-    t.integer  "points"
-    t.integer  "touches"
-    t.integer  "time_of_possession"
-    t.integer  "seconds_per_touch"
-    t.integer  "dribbles_per_touch"
-    t.integer  "points_per_touch"
+    t.decimal  "minutes"
+    t.decimal  "points"
+    t.decimal  "touches"
+    t.decimal  "time_of_possession"
+    t.decimal  "seconds_per_touch"
+    t.decimal  "dribbles_per_touch"
+    t.decimal  "points_per_touch"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

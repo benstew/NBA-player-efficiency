@@ -1,4 +1,3 @@
-
 require 'pry'
 
 File.open('../../nba-api/nba-scraper/stats.json', 'r') do |file|
