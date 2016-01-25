@@ -6,6 +6,9 @@ File.open('../../nba-api/nba-scraper/stats.json', 'r') do |file|
 
     all_players.each do |index, player|
 
+
+
+
       Player.create(name: player["name"],
                     team: player["team"],
                     games_played: player["games_played"],
