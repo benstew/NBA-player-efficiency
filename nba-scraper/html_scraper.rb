@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'pry'
-require 'csv'
 require 'json'
 
 def create_stats_hash
@@ -39,14 +38,13 @@ def create_stats_hash
     counter += 1
   end
 
-  # To write data to a csv file
-  # # CSV.open("stats.csv", "a") do |csv|
-  # #   csv << stats_extract.values
-  # # end
-
-  # To write data to JSON file
   File.open("stats.json","w") do |f|
+    # Can use JSON.parse(object) to extract anything
     f.write(stats_extract.to_json)
+  end
+
+  File.open("stats.rb","w") do |f|
+    f.write(stats_extract)
   end
 
   stats_extract

@@ -1,0 +1,65 @@
+<%= form_for(@player) do |f| %>
+  <% if @player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+      <% @player.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :team %><br>
+    <%= f.text_field :team %>
+  </div>
+  <div class="field">
+    <%= f.label :games_played %><br>
+    <%= f.number_field :games_played %>
+  </div>
+  <div class="field">
+    <%= f.label :wins %><br>
+    <%= f.number_field :wins %>
+  </div>
+  <div class="field">
+    <%= f.label :losses %><br>
+    <%= f.number_field :losses %>
+  </div>
+  <div class="field">
+    <%= f.label :minutes %><br>
+    <%= f.number_field :minutes %>
+  </div>
+  <div class="field">
+    <%= f.label :points %><br>
+    <%= f.number_field :points %>
+  </div>
+  <div class="field">
+    <%= f.label :touches %><br>
+    <%= f.number_field :touches %>
+  </div>
+  <div class="field">
+    <%= f.label :time_of_possession %><br>
+    <%= f.number_field :time_of_possession %>
+  </div>
+  <div class="field">
+    <%= f.label :seconds_per_touch %><br>
+    <%= f.number_field :seconds_per_touch %>
+  </div>
+  <div class="field">
+    <%= f.label :dribbles_per_touch %><br>
+    <%= f.number_field :dribbles_per_touch %>
+  </div>
+  <div class="field">
+    <%= f.label :points_per_touch %><br>
+    <%= f.number_field :points_per_touch %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Games played</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Minutes</th>
+      <th>Points</th>
+      <th>Touches</th>
+      <th>Time of possession</th>
+      <th>Seconds per touch</th>
+      <th>Dribbles per touch</th>
+      <th>Points per touch</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= player.team %></td>
+        <td><%= player.games_played %></td>
+        <td><%= player.wins %></td>
+        <td><%= player.losses %></td>
+        <td><%= player.minutes %></td>
+        <td><%= player.points %></td>
+        <td><%= player.touches %></td>
+        <td><%= player.time_of_possession %></td>
+        <td><%= player.seconds_per_touch %></td>
+        <td><%= player.dribbles_per_touch %></td>
+        <td><%= player.points_per_touch %></td>
+        <td><%= link_to 'Show', player %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player', new_player_path %>
