@@ -2,49 +2,28 @@ require 'nokogiri'
 require 'pry'
 require 'json'
 
-def create_stats_hash
-  html = File.read('fixtures/players.html')
-  stats_html = Nokogiri::HTML(html)
+def create_player_position_hash
+  html = File.read('fixtures/player_position.html')
+  positions_html = Nokogiri::HTML(html)
 
-  stats_extract = {}
-  counter = 1
+  positions_extract = {}
 
-  stats_html.css(".table tbody .each-player").each do |player|
+  positions_html.css("tr").each do |player|
+    name = player.css("a")[0].text
 
-    stats_extract[counter] = {
-      :name => player.css(".ng-binding")[0].text,
-      :team => player.css(".ng-binding")[1].text,
-      :games_played => player.css(".ng-binding")[2].text,
-      :wins => player.css(".ng-binding")[3].text.to_f,
-      :losses => player.css(".ng-binding")[4].text.to_f,
-      :minutes => player.css(".ng-binding")[5].text.to_f,
-      :points => player.css(".ng-binding")[6].text.to_f,
-
-      # The number of times a player touches and possesses the ball during the game
-      :touches => player.css(".ng-binding")[7].text.to_f,
-
-      # The number of minutes that a player possess the ball
-      :time_of_possession => player.css(".ng-binding")[9].text.to_f,
-
-      #The average seconds per touch
-      :seconds_per_touch => player.css(".ng-binding")[10].text.to_f,
-
-      #The average dribbles per touch
-      :dribbles_per_touch => player.css(".ng-binding")[11].text.to_f,
-
-      # The points scored by a player or team per touch
-      :points_per_touch => player.css(".ng-binding")[12].text.to_f
+    positions_extract[name] = {
+      :position => player.css("td")[1].text
     }
-    counter += 1
+
   end
 
-  File.open("stats.json","w") do |f|
+  File.open("positions.json","w") do |f|
     # Can use JSON.parse(object) to extract anything
-    f.write(stats_extract.to_json)
+    f.write(positions_extract.to_json)
   end
 
-  stats_extract
+  positions_extract
 
 end
 
-create_stats_hash
+create_player_position_hash
