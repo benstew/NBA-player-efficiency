@@ -2,16 +2,16 @@ require 'nokogiri'
 require 'pry'
 require 'json'
 
-def create_stats_hash
-  html = File.read('fixtures/nba_stats.html')
+def create_sportvu_hash
+  html = File.read('../fixtures/sportvu_stats.html')
   stats_html = Nokogiri::HTML(html)
 
-  stats_extract = {}
+  sportvu_extract = {}
   counter = 1
 
   stats_html.css(".table tbody .each-player").each do |player|
 
-    stats_extract[counter] = {
+    sportvu_extract[counter] = {
       :name => player.css(".ng-binding")[0].text,
       :team => player.css(".ng-binding")[1].text,
       :games_played => player.css(".ng-binding")[2].text,
@@ -38,13 +38,13 @@ def create_stats_hash
     counter += 1
   end
 
-  File.open("stats.json","w") do |f|
+  File.open("../json/sportvu_stats.json","w") do |f|
     # Can use JSON.parse(object) to extract anything
-    f.write(stats_extract.to_json)
+    f.write(sportvu_extract.to_json)
   end
 
-  stats_extract
+  sportvu_extract
 
 end
 
-create_stats_hash
+create_sportvu_hash
