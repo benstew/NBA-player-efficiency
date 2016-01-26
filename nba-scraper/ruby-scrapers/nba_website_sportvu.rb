@@ -2,7 +2,24 @@ require 'nokogiri'
 require 'pry'
 require 'json'
 
+
+def position_finder(player_name)
+  # Opens JSON position file to determine players position
+      File.open('../json/player_by_position.json', 'r') do |file|
+          file.each do |line|
+          position_information = JSON.parse(line)
+
+      if position_information[player_name]
+        return position = position_information[player_name]["position"]
+      else
+        return position = "BC"
+      end
+    end
+  end
+end
+
 def create_sportvu_hash
+  # Creates the hash which is used to seed the database
   html = File.read('../fixtures/sportvu_stats.html')
   stats_html = Nokogiri::HTML(html)
 
@@ -10,6 +27,10 @@ def create_sportvu_hash
   counter = 1
 
   stats_html.css(".table tbody .each-player").each do |player|
+
+    name = player.css(".ng-binding")[0].text
+
+    position = position_finder(name)
 
     sportvu_extract[counter] = {
       :name => player.css(".ng-binding")[0].text,
@@ -33,7 +54,10 @@ def create_sportvu_hash
       :dribbles_per_touch => player.css(".ng-binding")[11].text.to_f,
 
       # The points scored by a player or team per touch
-      :points_per_touch => player.css(".ng-binding")[12].text.to_f
+      :points_per_touch => player.css(".ng-binding")[12].text.to_f,
+
+      :position => position.to_s
+
     }
     counter += 1
   end
@@ -46,5 +70,6 @@ def create_sportvu_hash
   sportvu_extract
 
 end
+
 
 create_sportvu_hash

@@ -1,11 +1,10 @@
 require 'pry'
 
-File.open('../../nba-api/nba-scraper/stats.json', 'r') do |file|
+File.open('../../nba-api/nba-scraper/json/sportvu_stats.json', 'r') do |file|
   file.each do |line|
   all_players = JSON.parse(line)
 
     all_players.each do |index, player|
-
 
       Player.create(name: player["name"],
                     # position:
@@ -19,7 +18,8 @@ File.open('../../nba-api/nba-scraper/stats.json', 'r') do |file|
                     time_of_possession: player["time_of_possession"],
                     seconds_per_touch: player["seconds_per_touch"],
                     dribbles_per_touch: player["dribbles_per_touch"],
-                    points_per_touch: player["points_per_touch"])
+                    points_per_touch: player["points_per_touch"],
+                    position: player["position"])
 
     end
   end
