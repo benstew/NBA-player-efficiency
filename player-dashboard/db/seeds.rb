@@ -19,7 +19,16 @@ File.open('../../nba-api/nba-scraper/json/sportvu_stats.json', 'r') do |file|
                     seconds_per_touch: player["seconds_per_touch"],
                     dribbles_per_touch: player["dribbles_per_touch"],
                     points_per_touch: player["points_per_touch"],
-                    position: player["position"])
+                    position: player["position"],
+                    front_court_touches: player["front_court_touches"],
+                    elbow_touches: player["elbow_touches"],
+                    post_touches: player["post_touches"],
+                    paint_touches: player["paint_touches"],
+                    points_per_elbow_touch: player["points_per_elbow_touch"],
+                    points_per_post_touch: player["points_per_post_touch"],
+                    points_per_paint_touch: player["points_per_paint_touch"],
+                    points_per_front_court_touch: player["points"] / player["front_court_touches"]
+                    )
 
     end
   end
