@@ -71,3 +71,20 @@ div {
     list-style: square;
   }
 }
+
+
+// !!!!!!!!!!!!!!!!!!!!!!! Table
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(asset-path('up.jpg'));
+}
+
+.pretty th .desc {
+  background-image: url(asset-path('down.jpg'));
+}

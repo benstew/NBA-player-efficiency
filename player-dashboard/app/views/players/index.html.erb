@@ -2,7 +2,24 @@
 
 <h1>Listing Players</h1>
 
-<table>
+<%= form_tag players_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction]%>
+  <%= hidden_field_tag :sort, params[:sort]%>
+
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+<div id="players">
+  <%= render 'players' %>
+</div>
+
+
+
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -18,7 +35,6 @@
       <th>Seconds per touch</th>
       <th>Dribbles per touch</th>
       <th>Points per touch</th>
-      <th>Points per front court touch</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -39,14 +55,13 @@
         <td><%= player.seconds_per_touch %></td>
         <td><%= player.dribbles_per_touch %></td>
         <td><%= player.points_per_touch %></td>
-        <td><%= player.points_per_front_court_touch %></td>
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
