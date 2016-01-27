@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126000905) do
+ActiveRecord::Schema.define(version: 20160127203244) do
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
@@ -26,9 +26,17 @@ ActiveRecord::Schema.define(version: 20160126000905) do
     t.decimal  "seconds_per_touch"
     t.decimal  "dribbles_per_touch"
     t.decimal  "points_per_touch"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "position"
+    t.decimal  "frontcourt_touches"
+    t.decimal  "elbow_touches"
+    t.decimal  "post_touches"
+    t.decimal  "paint_touches"
+    t.decimal  "points_per_elbow_touch"
+    t.decimal  "points_per_post_touch"
+    t.decimal  "points_per_paint_touch"
+    t.float    "points_per_fc_touch"
   end
 
 end
