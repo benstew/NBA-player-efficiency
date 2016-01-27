@@ -1,0 +1,20 @@
+
+<table class="pretty">
+  <thead>
+    <tr>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "team" %></th>
+      <th><%= sortable "position" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= player.team %></td>
+        <td><%= player.position %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @players %>
