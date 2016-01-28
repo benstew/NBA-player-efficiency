@@ -6,210 +6,126 @@
     <small><%= @player.team %> (<%= @player.wins%> - <%= @player.losses %>)</small></h1>
 </div>
 
-<!-- <h3>Box Score Statistics</h3> -->
 <div class="panel panel-default">
-  <!-- Default panel contents -->
   <div class="panel-heading">
     <h3>Sportvu Statistics <small>(per game)</small></h3>
   </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Player Average</th>
-      <th>NBA Average</th>
-      <th>Difference</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Points</td>
-      <td><%= @player.points %></td>
-      <td><%= Player.average_points %></td>
-      <td><%= @player.points - Player.average_points %></td>
-    </tr>
-    <tr>
-      <td>Time Played (min)</td>
-      <td><%= @player.minutes %></td>
-      <td><%= Player.average_minutes %></td>
-      <td><%= @player.minutes - Player.average_minutes %></td>
-    </tr>
-    <tr>
-      <td>Time of Possession (min)</td>
-      <td><%= @player.time_of_possession  %></td>
-      <td><%= Player.average_time_of_possession %></td>
-      <td><%= @player.time_of_possession- Player.average_time_of_possession %></td>
-    </tr>
-    <tr>
-      <td>Time per Touch (sec)</td>
-      <td><%= @player.seconds_per_touch %></td>
-      <td><%= Player.average_seconds_per_touch %></td>
-      <td><%= @player.seconds_per_touch - Player.average_seconds_per_touch %></td>
-    </tr>
-    <td>Dribbles per Touch</td>
-      <td><%= @player.dribbles_per_touch %></td>
-      <td><%= Player.average_dribbles_per_touch %></td>
-      <td><%= @player.dribbles_per_touch - Player.average_dribbles_per_touch%></td>
-    </tr>
-    <td>Points per Touch</td>
-      <td><%= @player.points_per_touch %></td>
-      <td><%= Player.average_points_per_touch%></td>
-      <td><%= @player.points_per_touch - Player.average_points_per_touch %></td>
-    </tr>
-    <td>Elbow Touches</td>
-      <td><%= @player.elbow_touches %></td>
-      <td><%= Player.average_elbow_touches %></td>
-      <td><%= @player.elbow_touches - Player.average_elbow_touches %></td>
-    </tr>
-    <td>Post Touches</td>
-      <td><%= @player.post_touches %></td>
-      <td><%= Player.average_post_touches%></td>
-      <td><%= @player.post_touches - Player.average_post_touches %></td>
-    </tr>
-    <td>Paint Touches</td>
-      <td><%= @player.paint_touches %></td>
-      <td><%= Player.average_paint_touches %></td>
-      <td><%= @player.paint_touches - Player.average_paint_touches%></td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Player Average</th>
+        <th>NBA Average</th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Points</td>
+        <td><%= @player.points %></td>
+        <td><%= Player.average_points %></td>
+        <td><%= @player.points - Player.average_points %></td>
+      </tr>
+      <tr>
+        <td>Time Played (min)</td>
+        <td><%= @player.minutes %></td>
+        <td><%= Player.average_minutes %></td>
+        <td><%= @player.minutes - Player.average_minutes %></td>
+      </tr>
+      <tr>
+        <td>Time of Possession (min)</td>
+        <td><%= @player.time_of_possession  %></td>
+        <td><%= Player.average_time_of_possession %></td>
+        <td><%= @player.time_of_possession- Player.average_time_of_possession %></td>
+      </tr>
+      <tr>
+        <td>Time per Touch (sec)</td>
+        <td><%= @player.seconds_per_touch %></td>
+        <td><%= Player.average_seconds_per_touch %></td>
+        <td><%= @player.seconds_per_touch - Player.average_seconds_per_touch %></td>
+      </tr>
+      <td>Dribbles per Touch</td>
+        <td><%= @player.dribbles_per_touch %></td>
+        <td><%= Player.average_dribbles_per_touch %></td>
+        <td><%= @player.dribbles_per_touch - Player.average_dribbles_per_touch%></td>
+      </tr>
+      <td>Points per Touch</td>
+        <td><%= @player.points_per_touch %></td>
+        <td><%= Player.average_points_per_touch%></td>
+        <td><%= @player.points_per_touch - Player.average_points_per_touch %></td>
+      </tr>
+      <td>Elbow Touches</td>
+        <td><%= @player.elbow_touches %></td>
+        <td><%= Player.average_elbow_touches %></td>
+        <td><%= @player.elbow_touches - Player.average_elbow_touches %></td>
+      </tr>
+      <td>Post Touches</td>
+        <td><%= @player.post_touches %></td>
+        <td><%= Player.average_post_touches%></td>
+        <td><%= @player.post_touches - Player.average_post_touches %></td>
+      </tr>
+      <td>Paint Touches</td>
+        <td><%= @player.paint_touches %></td>
+        <td><%= Player.average_paint_touches %></td>
+        <td><%= @player.paint_touches - Player.average_paint_touches%></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <br>
-<br>
 
-
-
-<div class="progress">
-  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-    <span class="sr-only">40% Complete (success)</span>
+<div class="touch-analysis">
+  <div class="panel-heading">
+    <h3>Points Per Touch Analysis <small>(per game)</small></h3>
   </div>
-</div>
-<div class="progress">
-  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-    <span class="sr-only">20% Complete</span>
-  </div>
-</div>
-<div class="progress">
-  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-    <span class="sr-only">60% Complete (warning)</span>
-  </div>
-</div>
-<div class="progress">
-  <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-    <span class="sr-only">80% Complete (danger)</span>
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" style="width: <%=((@player.points_per_elbow_touch / @player_touch_total)*100).round%>%">
+      <span class="sr-only">35% Complete (success)</span> Something here
+    </div>
+    <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: <%=((@player.points_per_post_touch / @player_touch_total)*100).round%>%">
+      <span class="sr-only">20% Complete (warning)</span> Something here
+    </div>
+    <div class="progress-bar progress-bar-info progress-bar-striped"style="width: <%=((@player.points_per_paint_touch / @player_touch_total)*100).round%>%">
+      <span class="sr-only">10% Complete </span> something here
+    </div>
   </div>
 </div>
 
+<div class="panel panel-default">
 
-<br>
-<h3>Sportvu Statistics</h3>
-
-
-<div class="progress">
-  <div class="progress-bar progress-bar-success" style="width: 35%">
-    <span class="sr-only">35% Complete (success)</span>
-  </div>
-  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
-    <span class="sr-only">20% Complete (warning)</span>
-  </div>
-  <div class="progress-bar progress-bar-danger" style="width: 10%">
-    <span class="sr-only">10% Complete (danger)</span>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Player Average</th>
+        <th>NBA Average</th>
+        <th>Difference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Elbow Touch</td>
+        <td><%= @player.points_per_elbow_touch %></td>
+        <td><%= Player.average_points_per_elbow_touch %></td>
+        <td><%= @player.points_per_elbow_touch - Player.average_points_per_elbow_touch %></td>
+      </tr>
+      <tr>
+        <td>Post Touch</td>
+        <td><%= @player.points_per_post_touch %></td>
+        <td><%= Player.average_points_per_post_touch%></td>
+        <td><%= @player.points_per_post_touch - Player.average_points_per_post_touch %></td>
+      </tr>
+      <tr>
+        <td>Paint Touch</td>
+        <td><%= @player.points_per_paint_touch  %></td>
+        <td><%= Player.average_points_per_paint_touch%></td>
+        <td><%= @player.points_per_paint_touch - Player.average_points_per_paint_touch %></td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
 </div>
 
-
-
-
-
-<div class="row">
-  <!-- Line Chart - Single Series -->
-  <div class="col-xs-6">
-    <h3>Visits By Day</h3>
-    <%= line_chart @players.group_by_day(:created_at).count %>
-  </div>
-</div>
-
-<%= pie_chart @players.group(:team).count %>
-
-
-<h1>
-  <%= Player.average_post_touches %>
-</h1>
-
-
-<p>
-  <strong>Name:</strong>
-  <%= @player.name %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <%= @player.team %>
-</p>
-
-<p>
-  <strong>Games played:</strong>
-  <%= @player.games_played %>
-</p>
-
-<p>
-  <strong>Wins:</strong>
-  <%= @player.wins %>
-</p>
-
-<p>
-  <strong>Losses:</strong>
-  <%= @player.losses %>
-</p>
-
-<p>
-  <strong>Minutes:</strong>
-  <%= @player.minutes %>
-</p>
-
-<p>
-  <strong>Points:</strong>
-  <%= @player.points %>
-</p>
-
-<p>
-  <strong>Touches:</strong>
-  <%= @player.touches %>
-</p>
-
-<p>
-  <strong>Time of possession:</strong>
-  <%= @player.time_of_possession %>
-</p>
-
-<p>
-  <strong>Seconds per touch:</strong>
-  <%= @player.seconds_per_touch %>
-</p>
-
-<p>
-  <strong>Dribbles per touch:</strong>
-  <%= @player.dribbles_per_touch %>
-</p>
-
-<p>
-  <strong>Points per touch:</strong>
-  <%= @player.points_per_touch %>
-</p>
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

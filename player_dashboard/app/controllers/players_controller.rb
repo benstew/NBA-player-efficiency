@@ -13,6 +13,8 @@ class PlayersController < ApplicationController
   # GET /players/1.json
   def show
     @players = Player.all
+
+    @player_touch_total = @player.points_per_elbow_touch + @player.points_per_paint_touch + @player.points_per_post_touch
   end
 
   # GET /players/new

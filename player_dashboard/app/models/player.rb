@@ -79,4 +79,16 @@ class Player < ActiveRecord::Base
     (average(:paint_touches)).round(3)
   end
 
+  def self.average_points_per_elbow_touch
+    (average(:points_per_elbow_touch)).round(3)
+  end
+
+  def self.average_points_per_post_touch
+    (average(:points_per_post_touch)).round(3)
+  end
+
+  def self.average_points_per_paint_touch
+    (average(:points_per_paint_touch)).round(3)
+  end
+
 end
