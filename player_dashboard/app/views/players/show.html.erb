@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'Home', players_path %>
+<!-- <%= link_to 'Home', players_path %> -->
 
 <div class="page-header">
   <h1><%= @player.name %> <br>
@@ -82,13 +82,13 @@
   </div>
   <div class="progress">
     <div class="progress-bar progress-bar-success" style="width: <%=((@player.points_per_elbow_touch / @player_touch_total)*100).round%>%">
-      <span class="sr-only">35% Complete (success)</span> Something here
+      <span class="sr-only">35% Complete (success)</span> Elbow
     </div>
     <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: <%=((@player.points_per_post_touch / @player_touch_total)*100).round%>%">
-      <span class="sr-only">20% Complete (warning)</span> Something here
+      <span class="sr-only">20% Complete (warning)</span> Post
     </div>
     <div class="progress-bar progress-bar-info progress-bar-striped"style="width: <%=((@player.points_per_paint_touch / @player_touch_total)*100).round%>%">
-      <span class="sr-only">10% Complete </span> something here
+      <span class="sr-only">10% Complete </span> Paint
     </div>
   </div>
 </div>

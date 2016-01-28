@@ -4,8 +4,6 @@
   <h1>Example page header <small>Subtext for header</small></h1>
 </div>
 
-<h1>Listing Players</h1>
-
 <%= form_tag players_path, :method => 'get' do %>
   <%= hidden_field_tag :direction, params[:direction]%>
   <%= hidden_field_tag :sort, params[:sort]%>
@@ -22,37 +20,3 @@
 </div>
 
 <!-- <%= link_to 'New Player', new_player_path %> -->
-
-
-
-
-<!-- <table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Points</th>
-      <th>League Average</th>
-      <th>Difference</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td><%= @player.points %></td>
-      <td><%= Player.average_points %></td>
-      <td><%= @player.points - Player.average_points %></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table> -->
