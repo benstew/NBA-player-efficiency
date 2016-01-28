@@ -6,12 +6,15 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     # @players = Player.all
-    @players = Player.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
+    @players = Player.where(position: ['FC', 'C']).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
 
   # GET /players/1
   # GET /players/1.json
   def show
+    @players = Player.all
+
+    @player_touch_total = @player.points_per_elbow_touch + @player.points_per_paint_touch + @player.points_per_post_touch
   end
 
   # GET /players/new

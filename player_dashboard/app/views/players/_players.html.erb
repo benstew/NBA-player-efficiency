@@ -1,0 +1,68 @@
+<!--
+<table class="pretty">
+  <thead>
+    <tr>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "team" %></th>
+      <th><%= sortable "wins" %></th>
+      <th><%= sortable "lossses" %></th>
+      <th><%= sortable "Position"  %></th>
+      <th><%= sortable "Points"  %></th>
+
+      <th><%= sortable "Points Per Front Court Touch" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= link_to player.name, player_path(player) %></td>
+        <td><%= player.team %></td>
+        <td><%= player.wins %></td>
+        <td><%= player.losses %></td>
+
+        <td><%= player.position %></td>
+        <td><%= player.points %></td>
+
+        <td><%= player.points_per_fc_touch %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @players %> -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Current Power Forwards and Centers</h3>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= sortable "name" %></th>
+        <th><%= sortable "team" %></th>
+        <th><%= sortable "wins" %></th>
+        <th><%= sortable "losses" %></th>
+        <th><%= sortable "position"  %></th>
+        <th><%= sortable "points"  %></th>
+        <th><%= sortable "points_per_fc_touch"  %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @players.each do |player| %>
+      <tr>
+
+            <td><%= link_to player.name, player_path(player) %></td>
+            <td><%= player.team %></td>
+            <td><%= player.wins %></td>
+            <td><%= player.losses %></td>
+
+            <td><%= player.position %></td>
+            <td><%= player.points %></td>
+
+            <td><%= player.points_per_fc_touch %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @players %> -->
+</div>

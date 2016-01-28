@@ -27,7 +27,7 @@ a {
 
   &:hover {
     color: #fff;
-    background-color: #000;
+    background-color: transparent;
   }
 }
 
@@ -36,6 +36,8 @@ div {
     margin-bottom: 10px;
   }
 }
+
+
 
 #notice {
   color: green;
