@@ -1,22 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<div class="page-header">
-  <h1>Example page header <small>Subtext for header</small></h1>
-</div>
-
-<%= form_tag players_path, :method => 'get' do %>
-  <%= hidden_field_tag :direction, params[:direction]%>
-  <%= hidden_field_tag :sort, params[:sort]%>
-
+<div class="container">
+  <div class="page-header">
+    <h1>NBA Frontcourt Player Scoring <small>Impact Of Touches by Location</small></h1>
+  </div>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    I see the value in blah blah blah
   </p>
-<% end %>
 
+  <%= form_tag players_path, :method => 'get' do %>
+    <%= hidden_field_tag :direction, params[:direction]%>
+    <%= hidden_field_tag :sort, params[:sort]%>
 
-<div id="players">
-  <%= render 'players' %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+
+  <div id="players">
+    <%= render 'players' %>
+  </div>
+
 </div>
+
+
+
+
+
 
 <!-- <%= link_to 'New Player', new_player_path %> -->
