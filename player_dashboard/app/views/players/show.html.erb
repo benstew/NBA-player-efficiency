@@ -1,4 +1,139 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Home', players_path %>
+
+<div class="page-header">
+  <h1><%= @player.name %> <br>
+    <small><%= @player.team %> (<%= @player.wins%> - <%= @player.losses %>)</small></h1>
+</div>
+
+<!-- <h3>Box Score Statistics</h3> -->
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h3>Sportvu Statistics <small>(per game)</small></h3>
+  </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Player Average</th>
+      <th>NBA Average</th>
+      <th>Difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Points</td>
+      <td><%= @player.points %></td>
+      <td><%= Player.average_points %></td>
+      <td><%= @player.points - Player.average_points %></td>
+    </tr>
+    <tr>
+      <td>Time Played (min)</td>
+      <td><%= @player.minutes %></td>
+      <td><%= Player.average_minutes %></td>
+      <td><%= @player.minutes - Player.average_minutes %></td>
+    </tr>
+    <tr>
+      <td>Time of Possession (min)</td>
+      <td><%= @player.time_of_possession  %></td>
+      <td><%= Player.average_time_of_possession %></td>
+      <td><%= @player.time_of_possession- Player.average_time_of_possession %></td>
+    </tr>
+    <tr>
+      <td>Time per Touch (sec)</td>
+      <td><%= @player.seconds_per_touch %></td>
+      <td><%= Player.average_seconds_per_touch %></td>
+      <td><%= @player.seconds_per_touch - Player.average_seconds_per_touch %></td>
+    </tr>
+    <td>Dribbles per Touch</td>
+      <td><%= @player.dribbles_per_touch %></td>
+      <td><%= Player.average_dribbles_per_touch %></td>
+      <td><%= @player.dribbles_per_touch - Player.average_dribbles_per_touch%></td>
+    </tr>
+    <td>Points per Touch</td>
+      <td><%= @player.points_per_touch %></td>
+      <td><%= Player.average_points_per_touch%></td>
+      <td><%= @player.points_per_touch - Player.average_points_per_touch %></td>
+    </tr>
+    <td>Elbow Touches</td>
+      <td><%= @player.elbow_touches %></td>
+      <td><%= Player.average_elbow_touches %></td>
+      <td><%= @player.elbow_touches - Player.average_elbow_touches %></td>
+    </tr>
+    <td>Post Touches</td>
+      <td><%= @player.post_touches %></td>
+      <td><%= Player.average_post_touches%></td>
+      <td><%= @player.post_touches - Player.average_post_touches %></td>
+    </tr>
+    <td>Paint Touches</td>
+      <td><%= @player.paint_touches %></td>
+      <td><%= Player.average_paint_touches %></td>
+      <td><%= @player.paint_touches - Player.average_paint_touches%></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+    <span class="sr-only">40% Complete (success)</span>
+  </div>
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+    <span class="sr-only">20% Complete</span>
+  </div>
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+    <span class="sr-only">60% Complete (warning)</span>
+  </div>
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+    <span class="sr-only">80% Complete (danger)</span>
+  </div>
+</div>
+
+
+<br>
+<h3>Sportvu Statistics</h3>
+
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 35%">
+    <span class="sr-only">35% Complete (success)</span>
+  </div>
+  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
+    <span class="sr-only">20% Complete (warning)</span>
+  </div>
+  <div class="progress-bar progress-bar-danger" style="width: 10%">
+    <span class="sr-only">10% Complete (danger)</span>
+  </div>
+</div>
+
+
+
+
 
 <div class="row">
   <!-- Line Chart - Single Series -->
@@ -8,8 +143,12 @@
   </div>
 </div>
 
-<%= pie_chart Player.group(:position).count %>
+<%= pie_chart @players.group(:team).count %>
 
+
+<h1>
+  <%= Player.average_post_touches %>
+</h1>
 
 
 <p>

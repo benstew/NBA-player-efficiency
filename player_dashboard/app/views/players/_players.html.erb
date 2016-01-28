@@ -4,19 +4,72 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th><%= sortable "team" %></th>
-      <th><%= sortable "position" %></th>
-      <th><%= sortable "points_per_fc_touch" %></th>
+      <th><%= sortable "wins" %></th>
+      <th><%= sortable "lossses" %></th>
+      <th><%= sortable "Position"  %></th>
+      <th><%= sortable "Points"  %></th>
+
+      <th><%= sortable "Points Per Front Court Touch" %></th>
     </tr>
   </thead>
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.name %></td>
+        <td><%= link_to player.name, player_path(player) %></td>
         <td><%= player.team %></td>
+        <td><%= player.wins %></td>
+        <td><%= player.losses %></td>
+
         <td><%= player.position %></td>
+        <td><%= player.points %></td>
+
         <td><%= player.points_per_fc_touch %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <%= will_paginate @players %>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Position</th>
+      <th>Games played</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Minutes</th>
+      <th>Points</th>
+      <th>Touches</th>
+      <th>Time of possession</th>
+      <th>Seconds per touch</th>
+      <th>Dribbles per touch</th>
+      <th>Points per touch</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= player.team %></td>
+        <td><%= player.position %></td>
+        <td><%= player.games_played %></td>
+        <td><%= player.wins %></td>
+        <td><%= player.losses %></td>
+        <td><%= player.minutes %></td>
+        <td><%= player.points %></td>
+        <td><%= player.touches %></td>
+        <td><%= player.time_of_possession %></td>
+        <td><%= player.seconds_per_touch %></td>
+        <td><%= player.dribbles_per_touch %></td>
+        <td><%= player.points_per_touch %></td>
+        <td><%= link_to 'Show', player %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> -->
